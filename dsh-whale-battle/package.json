@@ -1,0 +1,62 @@
+{
+  "name": "dsh-whale-battle",
+  "version": "0.3.0",
+  "description": "DeepSeek Harness 的鲸鱼桌宠 + 回合制自动对战：十二关、技能、属性克制、进化，成长吃你真实的工具调用量。",
+  "type": "module",
+  "main": "index.js",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": {
+      "default": "./client.js"
+    },
+    "./package.json": "./package.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "lib",
+    "assets",
+    "pet-window",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dsh-plugin",
+    "pet",
+    "whale",
+    "battle",
+    "turn-based",
+    "desktop-pet",
+    "tamagotchi"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-layout"
+      ]
+    }
+  },
+  "meta": {
+    "title": "鲸鱼大作战",
+    "description": "角落里的小鲸鱼 + 回合制自动对战：喂食洗澡打工，攒怒气放绝招，打穿十二关。它的经验来自你今天的真实劳作量。"
+  },
+  "scripts": {
+    "build": "node bin/build-client.mjs",
+    "test": "node bin/build-client.mjs && node test/game.test.mjs && node test/routes.test.mjs && node test/render-smoke.mjs"
+  },
+  "license": "MIT"
+}
